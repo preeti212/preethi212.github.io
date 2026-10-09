@@ -384,3 +384,39 @@ export type SectionId = 'about' | 'journey' | 'originals' | 'picks' | 'skills' |
 export const viewerProfiles: {
   id: ProfileId;
   name: string;
+  blurb: string;
+  color: string;
+  order: SectionId[];
+}[] = [
+  {
+    id: 'preethi',
+    name: 'Preethi',
+    blurb: 'The full profile sequence',
+    color: '#e5132b',
+    order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'],
+  },
+  {
+    id: 'recruiter',
+    name: 'Recruiter',
+    blurb: 'Resume, achievements & skills first',
+    color: '#4cc9ff',
+    order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'],
+  },
+  {
+    id: 'developer',
+    name: 'Developer',
+    blurb: 'Projects, stack & GitHub first',
+    color: '#46e3a8',
+    order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'],
+  },
+];
+
+export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: string; palette: Palette }> = {
+  about: { nav: 'About', card: 'About Me', meta: 'Education & career shift', palette: violet },
+  journey: { nav: 'Journey', card: 'My Journey', meta: `${seasons.length} Seasons • ${seasons.reduce((n, s) => n + s.episodes.length, 0)} Episodes`, palette: amber },
+  originals: { nav: 'Projects', card: 'My Projects', meta: `${projects.length} Works • 2026`, palette: crimson },
+  picks: { nav: 'Top Highlights', card: 'Top Highlights', meta: 'Core highlights from resume', palette: jade },
+  skills: { nav: 'Skills', card: 'My Skills', meta: `${skillCategories.length} Categories`, palette: ocean },
+  moments: { nav: 'Achievements', card: 'My Achievements', meta: `${achievements.length} Achievements`, palette: crimson },
+  story: { nav: 'Resume', card: 'The Full Story', meta: 'Resume • Overview', palette: violet },
+};
